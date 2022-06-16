@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Example Dashboard</title>
+
+</head>
+<body>
+
+<h1>Hello in Dashboard</h1>
+
+<form action="/">
+    <label for="gh_name">Username:</label>
+    <input type="text" id="gh_name" name="gh_name"><br/>
+    <input type="submit" value="Search">
+</form>
+<h2>INFO About User</h2>
+<hr>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<table>
+    <thead>
+    <th>#</th>
+    <th>Login</th>
+    <th>Public Repo</th>
+    <th>Use Lang</th>
+    </thead>
+    <tbody>
+    <%= for user <- users do %>
+    <tr>
+        <td><%= user.id %></td>
+        <td><%= user.login %></td>
+        <td>
+            <%= for link <- user.links do %>
+            <a href="<%= link %>" target="_blank">
+                <%= link %>
+            </a><br/>
+            <% end %>
+        </td>
+        <td><%= user.langs %></td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
+</body>
+</html>
