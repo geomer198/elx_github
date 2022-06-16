@@ -5,13 +5,20 @@
 </head>
 <body>
 
-<h1>Hello in Dashboard</h1>
+<h1>
+    <center>Dashboard</center>
+</h1>
 
+<%= if users == [] do %>
 <form action="/">
     <label for="gh_name">Username:</label>
     <input type="text" id="gh_name" name="gh_name"><br/>
     <input type="submit" value="Search">
 </form>
+<% else %>
+<a href="/">Back</a>
+<% end %>
+<%= if users != [] do %>
 <h2>INFO About User</h2>
 <hr>
 <style>
@@ -46,3 +53,4 @@
 </table>
 </body>
 </html>
+<% end %>
